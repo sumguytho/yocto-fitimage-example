@@ -24,3 +24,4 @@ clone_repo() {
 clone_repo https://git.yoctoproject.org/poky 7a06e2daa719ca0cac9905988f72bb0cb546c7b5 ext_layers
 clone_repo https://git.yoctoproject.org/meta-arm 3cadb81ffaa9f03b92e302843cb22a9cd41df34b ext_layers
 clone_repo https://github.com/linux-sunxi/meta-sunxi c73c0a2c4a91a99ea822bbc1855060fe328c310b ext_layers
+clone_repo https://git.openembedded.org/meta-openembedded 6c9f1f8d4538119803bf793747b65e4d23c33544 ext_layers
