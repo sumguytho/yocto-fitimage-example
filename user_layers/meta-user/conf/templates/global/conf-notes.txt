@@ -1,0 +1,11 @@
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    uimg-min
+    uimg-min-initramfs
+    uimg-min-fit
+    uimg-min-kfit
+

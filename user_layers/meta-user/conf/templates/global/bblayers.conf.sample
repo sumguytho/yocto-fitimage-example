@@ -1,0 +1,6 @@
+# it seems oeroot is the only expansion that works in this file
+# other variables like builddir are not yet defined
+
+PROJECTDIR = "${@os.path.abspath("##OEROOT##" + "/../..")}"
+USERLAYER = "${PROJECTDIR}/user_layers/meta-user"
+require ${USERLAYER}/conf/global/bblayers.conf

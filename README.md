@@ -45,7 +45,7 @@ Raw yocto is used much as possible for this project. While a lot of bitbake conf
 
 # Generating images
 
-The first step is to use clone.sh script to clone layers required to build the project.
+The first step is to run clone.sh to clone layers required to build the project. The second step is to run `. ./source.sh` to setup build environment.
 
 # Glossary
 
