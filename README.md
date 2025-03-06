@@ -35,9 +35,11 @@ uuu -b emmc_all imx-boot-imx91evk-sd.bin-flash_singleboot imx-image-full-imx91ev
 
 From this syntax it seems that the flashing method is similar to the one used by 96boards.
 
+For Beagleboards there are 2 main solutions. First one is to use fastboot utility. This is suggested in the [quick start](https://docs.beagleboard.org/boards/beaglev/ahead/02-quick-start.html) for BeagleV Ahead. I suppose this implies that this board either maintains a copy of uboot that works at all times with fastboot support or has fastboot support in the ROM which I find to be less likely. The second option is to write an image directly to eMMC. [This forum post](https://forum.beagleboard.org/t/flashing-bbb-emmc-with-yocto-image/32197) suggests BeageBone Black can be put into a state where it exposes its eMMC as a device and can be written to directly. This suggests that there has to be a way to generate a wic image. One thing that surprised me is that not only has meta-beagleboard from openembedded layer index not been updated in 12 years on github but it also doesn't have a kickstart script for said wic image to be generated. It turns out, beagleboard support has been included into yocto and said script can be found in meta-yocto-bsp layer: meta-yocto-bsp/wic/beaglebone-yocto.wks. This script creates a medium image that has rootfs as separate partition.
+
 ## Conclusion
 
-None of the overviewed solutions use yocto to produce images that can be flashed onto MMC medium directly using bmaptool. This functionality might be necessary for developers who work with boards that don't have a designated flashing utility and want to avoid having to partition their medium manually.
+None of the overviewed solutions use yocto to produce medium images that use fitImage and can be flashed onto MMC medium directly using bmaptool. This functionality might be necessary for developers who work with boards that don't have a designated flashing utility and want to avoid having to partition their medium manually each time.
 
 # Key principles
 
@@ -47,6 +49,8 @@ Raw yocto is used much as possible for this project. While a lot of bitbake conf
 
 The first step is to run clone.sh to clone layers required to build the project. The second step is to run `. ./source.sh` to setup build environment.
 
+# TODO
+
 # Glossary
 
  - medium image: A binary file that can be written byte by byte onto a medium which will make said medium a valid bootable device.
@@ -55,3 +59,9 @@ The first step is to run clone.sh to clone layers required to build the project.
  - rootfs: A filesystem image with all the files that constitute an operating system.
  - partition based rootfs: A rootfs that is presented as a partition on some medium.
  - RAM based rootfs: Also called ramdisk in fitImage subimage types. A rootfs that is unpacked in RAM before being run. This rootfs storage method prevents damage to rootfs in case of sudden power interruption since non-volatile rootfs storage is never written to during runtime and is mostly used with embedded systems.
+
+# Resources
+
+ - [Yocto variables](https://docs.yoctoproject.org/next/ref-manual/variables.html).
+ - [Bitbake variables](https://docs.yoctoproject.org/bitbake/dev/bitbake-user-manual/bitbake-user-manual-ref-variables.html).
+ - [OpenEmbedded Layer Index](https://layers.openembedded.org/layerindex/branch/master/layers/).
