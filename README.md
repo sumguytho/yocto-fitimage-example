@@ -39,6 +39,14 @@ From this syntax it seems that the flashing method is similar to the one used by
 
 None of the overviewed solutions use yocto to produce images that can be flashed onto MMC medium directly using bmaptool. This functionality might be necessary for developers who work with boards that don't have a designated flashing utility and want to avoid having to partition their medium manually.
 
+# Key principles
+
+Raw yocto is used much as possible for this project. While a lot of bitbake configuration nastiness may be offset by tools such as [kas](https://github.com/siemens/kas) (go check it out if you aren't using it for your yocto project yet by the way), this project aims to demonstrate mechanisms used by yocto to achieve goals stated in introduction.
+
+# Generating images
+
+The first step is to use clone.sh script to clone layers required to build the project.
+
 # Glossary
 
  - medium image: A binary file that can be written byte by byte onto a medium which will make said medium a valid bootable device.
