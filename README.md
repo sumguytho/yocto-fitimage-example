@@ -49,6 +49,8 @@ Raw yocto is used much as possible for this project. While a lot of bitbake conf
 
 The first step is to run clone.sh to clone layers required to build the project. The second step is to run `. ./source.sh` to setup build environment.
 
+Generating fitImage: `bitbake mc:uimg-min-fit:uimg-min-fit`.
+
 # TODO
 
 # Glossary
