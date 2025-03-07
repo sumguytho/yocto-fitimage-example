@@ -16,12 +16,9 @@ rm -f $build_conf_dir/local.conf
 rm -f $build_conf_dir/conf-notes.txt
 rm -f $build_conf_dir/conf-summary.txt
 rm -f $build_conf_dir/templateconf.cfg
-rm -rf $build_conf_dir/multiconfig/
 
 # use user provided templateconf and set build dir to be in the project root
 TEMPLATECONF=$user_layer_templateconf . $source_script $project_dir/build
-
-cp -r $user_layer_templateconf/multiconfig $build_conf_dir/
 
 cd $project_dir
 unset source_script
