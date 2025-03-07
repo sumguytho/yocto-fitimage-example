@@ -1,0 +1,6 @@
+# This is a modified copy of meta-sunxi/wic/sunxi-sdcard-image.wks.in.
+#
+# short-description: Create an SD card image with a boot partition containing fitImage.
+
+part u-boot --source rawcopy --sourceparams="file=${SPL_BINARY}" --ondisk mmcblk0 --no-table --align 8
+part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 2048 --fixed-size ${USER_FIT_BOOT_SPACE}

@@ -8,3 +8,8 @@ require recipes-core/images/uimg-min.bb
 # PACKAGE_EXCLUDE for this purpose.
 DEPENDS:remove = "${WKS_FILE_DEPENDS}"
 IMAGE_FSTYPES = "${INITRAMFS_FSTYPES}"
+# Class image-artifact-names adds a ".rootfs" to image before its extension.
+# When the kernel-fitimage looks for image in deploy it expects to find a
+# file with image name without this suffix. Image core-image-minimal-initramfs
+# also removes this suffix.
+IMAGE_NAME_SUFFIX = ""
