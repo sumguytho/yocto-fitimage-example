@@ -68,9 +68,13 @@ targ_img_basepath="images/${targ_img_name}-orange-pi-pc.rootfs"
 sudo bmaptool copy --bmap ${targ_img_basepath}.wic.bmap ${targ_img_basepath}.wic ${targ_disk}
 ```
 
+# Limitations
+
+Some stuff may be broken when changing local.conf variables. For example, changing the MACHINE without manually cleaning up deploy artifacts may result in errors.
+
 # TODO
 
- - Figure out how to test uboot stuff using qemu.
+ - Figure out how to test uboot stuff using qemu. Make qemu support a standalone config that can be enabled in local.conf instead of a separate MACHINE.
 
 # Q&A
 
