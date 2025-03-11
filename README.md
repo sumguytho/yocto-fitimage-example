@@ -56,6 +56,18 @@ The first step is to run clone.sh to clone layers required to build the project.
 Generating uimg-min-initramfs doesn't require any multiconfig. This shouldn't be necessary though, since this image is made to be included into other images as ramdisk.
 Generating fitImage: `bitbake mc:uimg-min-fit:uimg-min-fit`.
 
+# Flashing images
+
+The images are flashed using bmaptool utility. It can be obtained by installing bmap-tools package. Final name of image file is determined by IMAGE_LINK_NAME variable. For example, if you want to flash image <uimg-min-fit> to medium </dev/sda> your command for that would be (assuming current working directory is project root):
+```
+# helper variables
+targ_img_name="uimg-min-fit"
+targ_disk="/dev/sda"
+targ_img_basepath="images/${targ_img_name}-orange-pi-pc.rootfs"
+# the command itself
+sudo bmaptool copy --bmap ${targ_img_basepath}.wic.bmap ${targ_img_basepath}.wic ${targ_disk}
+```
+
 # TODO
 
  - Figure out how to test uboot stuff using qemu.
