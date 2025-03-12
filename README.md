@@ -76,8 +76,8 @@ Some stuff may be broken when changing local.conf variables. For example, changi
 
  - Figure out how to test uboot stuff using qemu. Make qemu support a standalone config that can be enabled in local.conf instead of a separate MACHINE.
  - fitImage with no ramdisk is used for uimg-min-fit image.
- - qemu-img sometimes threatens shrinking an image despite the image being a lot less in size compared to new requested size. This is because sometime virtual size is abysmally high, one time I had 512M size for a 10M image. Why is that?
  - Disable usb support in u-boot. Boot times.
+ - u-boot report ramdisk size from fitImage as 95 bytes.
 
 # Q&A
 
