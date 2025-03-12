@@ -78,7 +78,8 @@ Some stuff may be broken when changing local.conf variables. For example, changi
  - fitImage with no ramdisk is used for uimg-min-fit image.
  - Disable usb support in u-boot. Boot times.
  - u-boot report ramdisk size from fitImage as 95 bytes. 95 is such a funny number, where does it even come from. Image contains a single empty init file. It's possible that this is because cpio.gz is being rebuilt without rebuilding rootfs even after rm_work removes it. After a couple of rebuilds an image was built correctly and I was able to boot it. Weird.
- - I made a bbappend to add to SRC_URI of u-boot but it wasn't rebuilt along with image. Idk. Because the actual recipe name is u-boot-1_2024.01-r0 as indicated by bitbake. u-boot-1. Yes. u-boot-1.
+ - It turns out, there was, indeed, no dependency on u-boot for uimg-min-fit. I broke it with '+=' in config.
+ - Bitbake displays recipe name for u-boot as u-boot-1_2024.01-r0 for some reason.
 
 # Q&A
 
