@@ -77,7 +77,8 @@ Some stuff may be broken when changing local.conf variables. For example, changi
  - Figure out how to test uboot stuff using qemu. Make qemu support a standalone config that can be enabled in local.conf instead of a separate MACHINE.
  - fitImage with no ramdisk is used for uimg-min-fit image.
  - Disable usb support in u-boot. Boot times.
- - u-boot report ramdisk size from fitImage as 95 bytes.
+ - u-boot report ramdisk size from fitImage as 95 bytes. 95 is such a funny number, where does it even come from. Image contains a single empty init file. It's possible that this is because cpio.gz is being rebuilt without rebuilding rootfs even after rm_work removes it. After a couple of rebuilds an image was built correctly and I was able to boot it. Weird.
+ - I made a bbappend to add to SRC_URI of u-boot but it wasn't rebuilt along with image. Idk. Because the actual recipe name is u-boot-1_2024.01-r0 as indicated by bitbake. u-boot-1. Yes. u-boot-1.
 
 # Q&A
 
