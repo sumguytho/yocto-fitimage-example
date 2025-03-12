@@ -3,7 +3,7 @@ kernel_do_deploy:append() {
     # INITRAMFS_IMAGE_BUNDLE controls which fitImage we want. Worst case scenario is we create
     # a broken symlink that won't be used.
     if [ "${INITRAMFS_IMAGE_BUNDLE}" = "1" ]; then
-        ln -sf fitImage-bundle $deployDir/${USER_FITIMAGE_NAME}
+        ln -sf fitImage $deployDir/${USER_FITIMAGE_NAME}
     else
         ln -sf fitImage-${INITRAMFS_IMAGE_NAME}-${KERNEL_FIT_NAME}${KERNEL_FIT_BIN_EXT} $deployDir/${USER_FITIMAGE_NAME}
     fi

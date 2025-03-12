@@ -2,6 +2,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += " \
     file://nousb.cfg \
+    file://bootm_extra_mem.cfg \
     file://myboot.cmd \
 "
 
