@@ -72,6 +72,8 @@ sudo bmaptool copy --bmap ${targ_img_basepath}.wic.bmap ${targ_img_basepath}.wic
 
 Some stuff may be broken when changing local.conf variables. For example, changing the MACHINE without manually cleaning up deploy artifacts may result in errors.
 
+The images have only been tested using qemu and not real hardware, it's possible that some stuff won't work as intended.
+
 # TODO
 
  - Figure out how to test uboot stuff using qemu. Make qemu support a standalone config that can be enabled in local.conf instead of a separate MACHINE.
