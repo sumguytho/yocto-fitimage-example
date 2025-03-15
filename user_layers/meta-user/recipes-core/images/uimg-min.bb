@@ -4,3 +4,5 @@
 # This image also serves as a base for initramfs image used by fitImages
 # which means all changes to rootfs must be done in this recipe.
 require recipes-core/images/core-image-minimal.bb
+
+IMAGE_INSTALL += "test-app"

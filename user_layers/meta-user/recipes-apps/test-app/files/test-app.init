@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ "$1" = "start" ]; then
+    # For some reason I don't see stdout except for
+    # kernel output so write to dmesg instead.
+    test-app > /dev/kmsg
+fi
+
+exit 0
