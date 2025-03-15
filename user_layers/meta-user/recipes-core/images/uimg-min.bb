@@ -5,4 +5,7 @@
 # which means all changes to rootfs must be done in this recipe.
 require recipes-core/images/core-image-minimal.bb
 
-IMAGE_INSTALL += "test-app"
+IMAGE_INSTALL += " \
+    test-app \
+    deploy-persist \
+"

@@ -4,3 +4,6 @@
 
 part u-boot --source rawcopy --sourceparams="file=${SPL_BINARY}" --ondisk mmcblk0 --no-table --align 8
 part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 2048 --fixed-size ${USER_FIT_BOOT_SPACE}
+# Wic has "--rootfs-dir" parameter which is used by plugin rootfs to locate rootfs. It can be used to populate
+# a partition using arbitrary directory, in this case, one exported by test-app using deploy.
+part /persist --source rootfs --rootfs-dir=${DEPLOY_DIR_IMAGE}/persist --ondisk mmcblk0 --fstype=ext4 --label persist --align 2048 --fixed-size ${USER_PERSIST_SPACE}

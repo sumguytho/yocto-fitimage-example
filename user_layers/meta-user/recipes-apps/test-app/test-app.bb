@@ -1,4 +1,4 @@
-SUMMARY = "A test recipe that creates directory for persist partition, adds a simple app launched at boot."
+SUMMARY = "A recipe that adds a simple app launched at boot."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
