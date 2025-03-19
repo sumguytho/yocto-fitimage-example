@@ -1,3 +1,4 @@
+#include <iterator>
 #include <utility>
 #include <string>
 #include <type_traits>
@@ -12,7 +13,7 @@ std::string to_string(int_seq_t<int_t, ints...> seq) {
     std::string result;
     auto iter = std::cbegin(ints_arr);
 
-    if (sizeof(ints_arr) >= 1) {
+    if (std::size(ints_arr) >= 1) {
         result += std::to_string(*iter);
         ++iter;
     }
