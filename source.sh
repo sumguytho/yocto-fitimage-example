@@ -21,4 +21,8 @@ rm -f $build_conf_dir/templateconf.cfg
 TEMPLATECONF=$user_layer_templateconf . $source_script $project_dir/build
 
 cd $project_dir
+
 unset source_script
+unset project_dir
+unset build_conf_dir
+unset user_layer_templateconf
