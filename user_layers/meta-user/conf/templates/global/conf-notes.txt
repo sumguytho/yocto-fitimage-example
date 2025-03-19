@@ -5,7 +5,6 @@ You can now run 'bitbake <target>'
 
 Common targets are:
     uimg-min
-    uimg-min-initramfs
-    uimg-min-fit
-    uimg-min-kfit
+    mc:uimg-min-fit:uimg-min-fit
+    mc:uimg-min-kfit:uimg-min-kfit
 

@@ -1,1 +1,2 @@
-This is the default build configuration for the Poky reference distribution.
+This is a modification of the default build configuration for the Poky reference distribution.
+It's made for building medium images capable of booting fitImages for orange pi pc.
