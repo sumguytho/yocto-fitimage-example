@@ -67,6 +67,28 @@ Some stuff may be broken when changing local.conf variables. For example, changi
 
 The images have only been tested using qemu and not real hardware, it's possible that some stuff won't work as intended. Everyone is welcome to test images on real hardware and report the results.
 
+# Images summary
+
+U-boot script is the same for all images. It tries to boot fitImage from boot partition first. If it fails, it then tries to boot using default kernel type and device tree from boot partition and rootfs from separate partition designated to rootfs.
+
+Every fitImage has at least a kernel and a device tree. Any additional contents of a fitImage are specified in respective sections.
+
+## uimg-min
+
+An image with 3 partitions: boot, rootfs, persist. Boot partition contains device tree, u-boot script and kernel.
+
+## uimg-min-fit
+
+An image with 2 partitions: boot and persist. Boot partition contains u-boot script and fitImage with rootfs as a subimage of fitImage.
+
+## uimg-min-kfit
+
+Same as uimg-min-fit except except the rootfs is now a part of kernel within fitImage and not a ramdisk subimage within fitImage. This means in this setup u-boot is no longer aware of existence of initramfs used to initialize the operating system.
+
+## uimg-min-initramfs
+
+An image used to create rootfs for fitImage based images. Has the same rootfs contents as uimg-min. The only reason it exists is that uimg-min can't be used as initramfs without modification. See image recipe for details.
+
 # Building images
 
 The first step is to run clone.sh to clone layers required to build the project. This needs to be done once right after the project has been cloned.
